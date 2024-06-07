@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Resume/Pause YouTube Music/Video",
+    "description": "Automatically resumes your music/video when you Pause the current tab and Automatically Pauses all other tabs when you Play the current tab.",
+    "version": "1.0",
+    "permissions": [
+      "tabs",
+      "scripting",
+      "activeTab",
+      "storage"
+    ],
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }, 
+    "host_permissions": [
+      "*://*.youtube.com/*",
+      "*://music.youtube.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+}
+  
